@@ -74,7 +74,7 @@ export function ProfitCalculator() {
                             {initialPrice && (
                                 <button
                                     onClick={() => setInitialPrice("")}
-                                    className="absolute right-2 top-1/2 -translate-y-1/2 clear-button"
+                                    className="cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 clear-button"
                                 >
                                     <X size={14} />
                                 </button>
@@ -98,7 +98,7 @@ export function ProfitCalculator() {
                             {finalPrice && (
                                 <button
                                     onClick={() => setFinalPrice("")}
-                                    className="absolute right-2 top-1/2 -translate-y-1/2 clear-button"
+                                    className="cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 clear-button"
                                 >
                                     <X size={14} />
                                 </button>
@@ -128,7 +128,7 @@ export function ProfitCalculator() {
                                 {investment && (
                                     <button
                                         onClick={() => setInvestment("")}
-                                        className="absolute right-2 top-1/2 -translate-y-1/2 clear-button"
+                                        className="cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 clear-button"
                                     >
                                         <X size={14} />
                                     </button>
@@ -161,7 +161,7 @@ export function ProfitCalculator() {
                                 {tokens && (
                                     <button
                                         onClick={() => setTokens("")}
-                                        className="absolute right-2 top-1/2 -translate-y-1/2 clear-button"
+                                        className="cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 clear-button"
                                     >
                                         <X size={14} />
                                     </button>
@@ -175,9 +175,11 @@ export function ProfitCalculator() {
             {result && (
                 <div
                     className={`mt-6 p-4 bg-muted rounded-md border-2 ${
-                        result.profit >= 0
+                        result.profit > 0
                             ? "border-green-500"
-                            : "border-red-500"
+                            : result.profit < 0
+                            ? "border-red-500"
+                            : "border-gray-300"
                     }`}
                 >
                     <h3 className="text-lg font-semibold mb-2">Results</h3>
