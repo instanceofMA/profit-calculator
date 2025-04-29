@@ -49,7 +49,7 @@ export function ProfitCalculator() {
     }, [initialPrice, finalPrice, investment, tokens]);
 
     return (
-        <div className="w-full max-w-xl mx-auto space-y-6 p-6 bg-card rounded-lg shadow-lg">
+        <div className="bg-background w-full max-w-xl mx-auto space-y-6 p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold text-center mb-6">
                 Crypto Profit/Loss Calculator
             </h2>
@@ -57,7 +57,7 @@ export function ProfitCalculator() {
             <div className="space-y-4">
                 <div className="flex flex-col space-y-4">
                     <div>
-                        <label className="text-sm font-medium">
+                        <label className="text-sm font-normal text-muted-foreground">
                             Initial Price ($)
                         </label>
                         <div className="relative">
@@ -70,6 +70,7 @@ export function ProfitCalculator() {
                                 }
                                 min="0"
                                 step="any"
+                                className="ring-0 hover:ring-1 hover:ring-input-selected focus-visible:ring-input-selected transition-all duration-200 ease-in-out"
                             />
                             {initialPrice && (
                                 <button
@@ -83,7 +84,7 @@ export function ProfitCalculator() {
                     </div>
 
                     <div>
-                        <label className="text-sm font-medium">
+                        <label className="text-sm font-normal text-muted-foreground">
                             Final Price ($)
                         </label>
                         <div className="relative">
@@ -94,6 +95,7 @@ export function ProfitCalculator() {
                                 onChange={(e) => setFinalPrice(e.target.value)}
                                 min="0"
                                 step="any"
+                                className="ring-0 hover:ring-1 hover:ring-input-selected focus-visible:ring-input-selected transition-all duration-200 ease-in-out"
                             />
                             {finalPrice && (
                                 <button
@@ -108,7 +110,7 @@ export function ProfitCalculator() {
 
                     <div className="grid grid-cols-12 gap-4">
                         <div className="col-span-5 flex flex-col">
-                            <label className="text-sm font-medium mb-2">
+                            <label className="text-sm font-normal text-muted-foreground mb-2">
                                 Investment Amount ($)
                             </label>
                             <div className="relative">
@@ -123,7 +125,7 @@ export function ProfitCalculator() {
                                     min="0"
                                     step="any"
                                     disabled={!!tokens}
-                                    className="h-10"
+                                    className="h-10 ring-0 hover:ring-1 hover:ring-input-selected focus-visible:ring-input-selected transition-all duration-200 ease-in-out"
                                 />
                                 {investment && (
                                     <button
@@ -136,12 +138,12 @@ export function ProfitCalculator() {
                             </div>
                         </div>
                         <div className="col-span-2 flex items-center justify-center">
-                            <span className="bg-background px-4 py-2 rounded-md font-medium text-sm">
+                            <span className="px-4 py-2 rounded-md font-normal text-muted-foreground text-sm">
                                 OR
                             </span>
                         </div>
                         <div className="col-span-5 flex flex-col">
-                            <label className="text-sm font-medium mb-2">
+                            <label className="text-sm font-normal text-muted-foreground mb-2">
                                 Number of Tokens
                             </label>
                             <div className="relative">
@@ -156,7 +158,7 @@ export function ProfitCalculator() {
                                     min="0"
                                     step="any"
                                     disabled={!!investment}
-                                    className="h-10"
+                                    className="h-10 ring-0 hover:ring-1 hover:ring-input-selected focus-visible:ring-input-selected transition-all duration-200 ease-in-out"
                                 />
                                 {tokens && (
                                     <button
@@ -174,11 +176,11 @@ export function ProfitCalculator() {
 
             {result && (
                 <div
-                    className={`mt-6 p-4 bg-muted rounded-md border-2 ${
+                    className={`mt-6 p-4 bg-background rounded-md border-2 ${
                         result.profit > 0
-                            ? "border-green-500"
+                            ? "border-success"
                             : result.profit < 0
-                            ? "border-red-500"
+                            ? "border-warning"
                             : "border-gray-300"
                     }`}
                 >
